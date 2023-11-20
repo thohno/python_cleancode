@@ -1,3 +1,5 @@
+import numpy as np
+
 # Code smell
 class Statistics:
     def __init__(self):
