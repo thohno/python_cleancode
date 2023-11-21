@@ -18,7 +18,6 @@ def process_data(column, stat):
     # Introduce variable here
     column.mean()
 
-
     # Extract this method
     def calculate_mean_of_squares(column, squared_values):
       mean_square = squared_values.mean()
@@ -43,6 +42,8 @@ def process_data(column, stat):
     else:
         return column.mean()
 
+
 if __name__ == '__main__':  
   df = pd.DataFrame({'day1': [1, 2, 3, 4, 5], 'day2': [2, 4, 6, 8, 10]})
-  process_data(df['day2'], 'SQUARED')
+  val = process_data(df['day2'], 'SQUARED')
+  print(val)
