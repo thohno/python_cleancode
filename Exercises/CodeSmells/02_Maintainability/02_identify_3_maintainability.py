@@ -4,6 +4,7 @@
 # Dead code
 # High coupling/low cohesion
 # High coupling/low cohesion to a library
+# Primitive Obsession
 
 class GroceryShop:
     def buy_item(self, item, method):

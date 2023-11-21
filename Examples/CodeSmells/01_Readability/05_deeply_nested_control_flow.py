@@ -1,3 +1,5 @@
+from time import sleep
+
 # Code smell
 if (files_are_valid):
     for line in file_content:

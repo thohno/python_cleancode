@@ -4,6 +4,7 @@
 # Dead code
 # High coupling/low cohesion
 # High coupling/low cohesion to a library
+# Primitive Obsession
 
 class PaypalPaymentProcessor:
     def process_payment(self, amount, method):
