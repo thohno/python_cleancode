@@ -1,33 +1,28 @@
-# Identify the 3 code smells from the following list:
-# Duplicate code
-# Magic strings/numbers
-# Dead code
-# High coupling/low cohesion
-# High coupling/low cohesion to a library
+# Identify the 4 code smells from the following list:
+# Long methods
+# Bad & redundant comments
+# Bad variable/method naming
+# Too many function arguments
+# Conditional complexity
+# Deeply nested control flow
+# Cyclomatic complexity
+# Temporary fields
+# Side effects
 
-class PaypalPaymentProcessor:
-    def process_payment(self, amount, method):
-        if method == "credit_card":
-            fee = self.calculate_credit_card_fee(amount)
-            print(f"Processing credit card payment with fee: {fee}")
-        elif method == "bank_transfer":
-            fee = self.calculate_bank_transfer_fee(amount)
-            print(f"Processing bank transfer payment with fee: {fee}")
-        else:
-            fee = amount * 0.05
-            print(f"Processing PayPal payment with fee: {fee}")
-
-    class StripePaymentProcessor:
-        def process_payment(self, amount, method):
-            if method == "credit_card":
-                fee = self.calculate_credit_card_fee(amount)
-                print(f"Processing credit card payment with fee: {fee}")
-            elif method == "bank_transfer":
-                fee = self.calculate_bank_transfer_fee(amount)
-                print(f"Processing bank transfer payment with fee: {fee}")
+def process_data(data):
+    # Check if data is valid
+    if data:
+        temp_result = 0
+        for item in data:
+        # Calculate the item's value
+            if item > 0:
+                temp_result += item
+        # Skip negative values
             else:
-                fee = amount * 0.03
-                print(f"Processing Stripe payment with fee: {fee}")
+                pass
+        return temp_result
+    else:
+        return 0
 
 
 if __name__ == '__main__':
