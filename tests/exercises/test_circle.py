@@ -4,7 +4,7 @@ from parameterized import parameterized
 from src.exercises.circle import Circle
 
 
-class TestMyClass(unittest.TestCase):
+class TestCircle(unittest.TestCase):
     def setUp(self):
         self.circle = Circle(x=0, y=0, radius=1)
 
