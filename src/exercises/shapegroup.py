@@ -22,21 +22,21 @@ class ShapeGroup:
     def add(self, shape):
         if not self.read_only:
             if not self.contains(shape):
-                newSize = self.size + 1
-                if newSize > len(self.shapes):
-                    newShapes = np.zeros(len(self.shapes) + 10)
+                new_size = self.size + 1
+                if new_size > len(self.shapes):
+                    new_shapes = np.zeros(len(self.shapes) + 10)
                     i = 0
                     while i < self.size:
-                        newShapes[i] = self.shapes[i]
+                        new_shapes[i] = self.shapes[i]
                         i += 1
-                    shapes = newShapes
-                shapes[self.size] = shape
+                    self.shapes = new_shapes
+                self.shapes[self.size] = shape
                 self.size += 1
                 return
             return
 
     def contains(self, shape):
-        return self.shape in self.shapes
+        return shape in self.shapes
 
     @property
     def read_only(self):
