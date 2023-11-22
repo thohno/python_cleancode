@@ -1,11 +1,17 @@
 import numpy as np
 
+I = 4
+
+MEDIAN = 1
+
+
 # Rename
 # Introduce variable/constant
 # Change signature
 # Extract method
 # Go to declaration
 # See usages
+# Inline
 
 # Value for stats:
 # 1: median
@@ -18,7 +24,7 @@ def process_data(column, stat):
 
     column.mean()
 
-    if stat == 1:
+    if stat == MEDIAN:
       return m
     elif stat == 2:
         squared = np.square(column)
@@ -27,11 +33,11 @@ def process_data(column, stat):
         squared = np.square(column)
         mean_square = squared.mean()
         return mean_square
-    elif stat == 4:
+    elif stat == I:
         root_value = 2
         # adjustment factor
         a_f = 0.02
-        return column ** (1 / root_value) - a_f
+        return column ** (MEDIAN / root_value) - a_f
     else:
         return column.mean()
 

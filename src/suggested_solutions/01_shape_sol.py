@@ -7,6 +7,7 @@ import numpy as np
 class Shape:
     def __init__(self):
         self.size = 0
+        # change to object
         self.shapes = np.zeros(5)
         self.readOnly = False
 
@@ -18,6 +19,9 @@ class Shape:
             self.grow()
 
         self.addToShapes(shape)
+
+    def contains(self, shape):
+        return self.shape in self.shapes
 
     def addToShapes(self, shape):
         self.shapes[self.size] = shape

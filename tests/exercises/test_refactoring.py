@@ -2,7 +2,7 @@ import unittest
 import pytest
 import pandas as pd
 import numpy as np
-import refactoring as rf
+from src.exercises import refactoring
 
 # run: pytest -k TestRefactoring
 class TestRefactoring:
@@ -13,21 +13,21 @@ class TestRefactoring:
         return data
 
     def test_mean(self, data):
-        output = rf.process_data(data, 0)
+        output = refactoring.process_data(data, 0)
         assert output == 44.0, 'Incorrect mean'
 
     def test_median(self, data):
-        output = rf.process_data(data, 1)
+        output = refactoring.process_data(data, 1)
         assert output == 36, 'Incorrect median'
 
     def test_squares(self, data):
-        output = rf.process_data(data, 2)
+        output = refactoring.process_data(data, 2)
         assert (output == np.array([16, 256, 1296, 4096, 10000])).all(), 'Incorrect squares'
 
     def test_mean_squares(self, data):
-        output = rf.process_data(data, 3)
+        output = refactoring.process_data(data, 3)
         assert output == 3132.8, 'Incorrect mean squares'
 
     def test_root(self, data):
-        output = rf.process_data(data, 4)
-        assert (output == np.array([1.98, 3.98, 5.98, 7.98, 9.98])).all(), 'Incorrect root'
+        output = refactoring.process_data(data, 4)
+        assert output == np.array([1.98, 3.98, 5.98, 7.98, 9.98]).all(), 'Incorrect root'

@@ -24,8 +24,10 @@ class Shape:
                 newSize = self.size + 1
                 if newSize > len(self.shapes):
                     newShapes = np.zeros(len(self.shapes) + 10)
-                    for i in range(self.size):
+                    i = 0
+                    while i < self.size:
                         newShapes[i] = self.shapes[i]
+                        i += 1
                     shapes = newShapes
                 shapes[self.size] = shape
                 self.size += 1
