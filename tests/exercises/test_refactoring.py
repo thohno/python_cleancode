@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from src.exercises import refactoring
 
-# run: pytest -k TestRefactoring
+# run pytest ./tests/exercises/test_refactoring.py
 class TestRefactoring:
     @pytest.fixture
     def data(self):
@@ -30,4 +30,4 @@ class TestRefactoring:
 
     def test_root(self, data):
         output = refactoring.process_data(data, 4)
-        assert output == np.array([1.98, 3.98, 5.98, 7.98, 9.98]).all(), 'Incorrect root'
+        assert (output == np.array([1.98, 3.98, 5.98, 7.98, 9.98])).all(), 'Incorrect root'

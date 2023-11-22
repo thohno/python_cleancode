@@ -7,8 +7,7 @@ import numpy as np
 class Shape:
     def __init__(self):
         self.size = 0
-        # change to object
-        self.shapes = np.zeros(5)
+        self.shapes = np.full(5, None, dtype=object)
         self.readOnly = False
 
     def add(self, shape):

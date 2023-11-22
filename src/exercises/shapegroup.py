@@ -1,4 +1,4 @@
-# Identify the 2 code smells from the following list:
+# Identify the code smells from the following list:
 # Long methods
 # Bad & redundant comments
 # Bad variable/method naming
@@ -10,7 +10,6 @@
 # Side effects
 
 import numpy as np
-import self
 
 
 class ShapeGroup:
