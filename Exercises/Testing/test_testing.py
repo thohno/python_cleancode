@@ -1,5 +1,7 @@
 import pytest
 import testing
+
+# run pytest ./Exercises/Testing/test_testing.py
 @pytest.fixture
 def mock_sleep(mocker):
     return mocker.patch('time.sleep', return_value=None)
