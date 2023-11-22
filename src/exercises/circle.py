@@ -13,8 +13,8 @@ class Circle:
 
         return result
 
-    def countContainingPoints(self, xCoords, yCoords):
-        numberOfContainingPoints = 0
-        for x, y in zip(xCoords, yCoords):
+    def count_containing_points(self, x_coords, y_coords):
+        number_of_containing_points = 0
+        for x, y in zip(x_coords, y_coords):
             self.contains(x, y)
-        return numberOfContainingPoints
+        return number_of_containing_points
