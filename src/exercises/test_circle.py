@@ -1,7 +1,7 @@
 import unittest
 from parameterized import parameterized
 
-from Exercises.circle import Circle
+from src.exercises.circle import Circle
 
 
 class TestMyClass(unittest.TestCase):

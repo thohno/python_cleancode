@@ -10,16 +10,18 @@
 # Side effects
 
 import numpy as np
+import self
 
 
-class Shape:
+class ShapeGroup:
+
     def __init__(self):
         self.size = 0
         self.shapes = np.zeros(5)
-        self.readOnly = False
+        self.read_only = False
 
     def add(self, shape):
-        if not self.readOnly:
+        if not self.read_only:
             if not self.contains(shape):
                 newSize = self.size + 1
                 if newSize > len(self.shapes):
@@ -37,6 +39,10 @@ class Shape:
     def contains(self, shape):
         return self.shape in self.shapes
 
+    @property
+    def read_only(self):
+        return self._read_only
 
-if __name__ == '__main__':
-    pass
+    @read_only.setter
+    def read_only(self, read_only):
+        self._read_only = read_only
