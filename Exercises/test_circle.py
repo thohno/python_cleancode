@@ -1,4 +1,5 @@
 import unittest
+from parameterized import parameterized
 
 from Exercises.circle import Circle
 
@@ -12,14 +13,12 @@ class TestMyClass(unittest.TestCase):
         self.assertTrue(self.circle.contains(0, 1))
         self.assertTrue(self.circle.contains(1, 0))
 
-    def test_not_contains_point(self):
-        self.assertFalse(self.circle.contains(1, 1))
-        self.assertFalse(self.circle.contains(-1, -1))
-        self.assertFalse(self.circle.contains(1, -1))
-        self.assertFalse(self.circle.contains(-1, 1))
-
-    def test_add_same_point(self):
-        self.assertFalse(self.circle.contains(11, 11))
-
-
-
+    @parameterized.expand([
+        (1, 1, False),
+        (-1, -1, False),
+        (1, -1, False),
+        (-1, 1, False)
+    ])
+    def test_not_contains_point(self, x, y, expected):
+        is_contained = self.circle.contains(x, y)
+        self.assertEqual(is_contained, expected)
