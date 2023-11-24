@@ -15,7 +15,7 @@ from enum import Enum
 
 def calc_profit_share(employer_type, employer_details, base_salary) -> int:
     factory = SalaryFactory()
-    strategy = factory.get_salary_strategy(employer_type)
+    strategy = factory.get_salary_strategy(EmployerType(employer_type))
     return strategy.calculate_salary(employer_details, base_salary)
 
 
