@@ -1,10 +1,9 @@
-import unittest
 import pytest
 import pandas as pd
 import numpy as np
 from src.exercises import refactoring
 
-# run pytest ./tests/exercises/test_refactoring.py
+
 class TestRefactoring:
     @pytest.fixture
     def data(self):

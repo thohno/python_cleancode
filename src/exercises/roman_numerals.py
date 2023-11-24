@@ -26,7 +26,7 @@ class RomanNumerals:
     def from_roman(s):
         roman_dict = {
             'I': 1,
-            'V': 5,
+            'IIIII': 5,
             'X': 10,
             'L': 50,
             'C': 100,
