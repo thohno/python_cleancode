@@ -15,8 +15,8 @@ import numpy as np
 class ShapeGroup:
 
     def __init__(self):
+        self.shapes = np.empty(10, dtype=object)
         self.size = 0
-        self.shapes = np.zeros(5)
         self.read_only = False
 
     def add(self, shape):
@@ -24,7 +24,7 @@ class ShapeGroup:
             if not self.contains(shape):
                 new_size = self.size + 1
                 if new_size > len(self.shapes):
-                    new_shapes = np.zeros(len(self.shapes) + 10)
+                    new_shapes = np.empty(len(self.shapes) + 10, dtype=object)
                     i = 0
                     while i < self.size:
                         new_shapes[i] = self.shapes[i]
