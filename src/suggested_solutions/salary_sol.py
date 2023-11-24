@@ -50,8 +50,8 @@ class ScientistSalaryStrategy(SalaryStrategy):
     def calculate_salary(self, employer_details, base_salary):
         profit_share_percentage = 20 if employer_details.is_expert() else 10
 
-        profi_share_relevant = base_salary / 4
-        return profi_share_relevant / 100 * profit_share_percentage
+        profit_share_relevant = base_salary / 4
+        return profit_share_relevant / 100 * profit_share_percentage
 
 
 class DeveloperSalaryStrategy(SalaryStrategy):

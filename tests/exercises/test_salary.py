@@ -1,5 +1,4 @@
 import unittest
-from parameterized import parameterized
 
 from src.exercises.salary import calc_profit_share, Employer
 
