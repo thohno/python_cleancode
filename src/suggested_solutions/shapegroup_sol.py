@@ -8,7 +8,7 @@ class ShapeGroup:
     def __init__(self):
         self.size = 0
         self.shapes = np.full(5, None, dtype=object)
-        self.read_only = False
+        self._read_only = False
 
     def add(self, shape):
         if self.read_only or self.contains(shape):
@@ -37,11 +37,11 @@ class ShapeGroup:
 
     @property
     def read_only(self):
-        return self.read_only
+        return self._read_only
 
     @read_only.setter
     def read_only(self, read_only):
-        self.read_only = read_only
+        self._read_only = read_only
 
 
 if __name__ == '__main__':
