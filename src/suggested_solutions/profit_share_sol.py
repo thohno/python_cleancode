@@ -13,13 +13,13 @@ from enum import Enum
 # Inline
 
 
-def calc_profit_share(employer_type, employer_details, base_salary) -> int:
+def calc_profit_share(employee_type, employee_details, base_salary) -> int:
     factory = SalaryFactory()
-    strategy = factory.get_salary_strategy(EmployerType(employer_type))
-    return strategy.calculate_salary(employer_details, base_salary)
+    strategy = factory.get_salary_strategy(EmployeeType(employee_type))
+    return strategy.calculate_salary(employee_details, base_salary)
 
 
-class EmployerType(Enum):
+class EmployeeType(Enum):
     SCIENTIST = 1
     DEVELOPER = 2
     BOSS = 3
@@ -27,38 +27,38 @@ class EmployerType(Enum):
 
 
 class SalaryFactory:
-    def get_salary_strategy(self, employer_type):
-        if employer_type == EmployerType.SCIENTIST:
+    def get_salary_strategy(self, employee_type):
+        if employee_type == EmployeeType.SCIENTIST:
             return ScientistSalaryStrategy()
-        elif employer_type == EmployerType.DEVELOPER:
+        elif employee_type == EmployeeType.DEVELOPER:
             return DeveloperSalaryStrategy()
-        elif employer_type == EmployerType.BOSS:
+        elif employee_type == EmployeeType.BOSS:
             return BossSalaryStrategy()
-        elif employer_type == EmployerType.IT_GUY:
+        elif employee_type == EmployeeType.IT_GUY:
             return ITGuySalaryStrategy()
         else:
-            raise ValueError("Unknown Employer Type")
+            raise ValueError("Unknown Employee Type")
 
 
 class SalaryStrategy(ABC):
     @abstractmethod
-    def calculate_salary(self, employer_details, base_salary):
+    def calculate_salary(self, employee_details, base_salary):
         pass
 
 
 class ScientistSalaryStrategy(SalaryStrategy):
-    def calculate_salary(self, employer_details, base_salary):
-        profit_share_percentage = 20 if employer_details.is_expert() else 10
+    def calculate_salary(self, employee_details, base_salary):
+        profit_share_percentage = 20 if employee_details.is_expert() else 10
 
         profit_share_relevant = base_salary / 4
         return profit_share_relevant / 100 * profit_share_percentage
 
 
 class DeveloperSalaryStrategy(SalaryStrategy):
-    def calculate_salary(self, employer_details, base_salary):
-        if employer_details.is_expert():
+    def calculate_salary(self, employee_details, base_salary):
+        if employee_details.is_expert():
             profit_share_percentage = 15
-        elif employer_details.is_advanced():
+        elif employee_details.is_advanced():
             profit_share_percentage = 10
         else:
             profit_share_percentage = 5
@@ -70,14 +70,14 @@ class DeveloperSalaryStrategy(SalaryStrategy):
 
 
 class BossSalaryStrategy(SalaryStrategy):
-    def calculate_salary(self, employer_details, base_salary):
+    def calculate_salary(self, employee_details, base_salary):
         company_share_service = CompanyShareService()
         company_share_service.assign_shares(100)
         return base_salary / 100 * 20
 
 
 class ITGuySalaryStrategy(SalaryStrategy):
-    def calculate_salary(self, employer_details, base_salary):
+    def calculate_salary(self, employee_details, base_salary):
         email_service = EmailService()
         email_service.send_sorry_mail()
         return 0
@@ -95,7 +95,7 @@ class EmailService:
         pass
 
 
-class Employer:
+class Employee:
     def __init__(self, name, years_of_experience):
         self.name = name
         self.years_of_experience = years_of_experience
