@@ -1,9 +1,9 @@
 import unittest
 
-from src.exercises.salary import calc_profit_share, Employer
+from src.exercises.profit_share import calc_profit_share, Employer
 
 
-class SalaryTest(unittest.TestCase):
+class ProfitShareTest(unittest.TestCase):
     def test_scientist_normal(self):
         normal_scientist = Employer("Garry", 3)
 
